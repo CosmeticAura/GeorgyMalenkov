@@ -442,6 +442,82 @@
     }
     footer span { color: #FFD700; }
 
+    /* ── Photo Figure ── */
+    .photo-figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .photo-figure img {
+      width: 100%;
+      display: block;
+      border: 3px solid #C8A000;
+      filter: grayscale(20%);
+    }
+    .photo-figure figcaption {
+      background: #1a0000;
+      color: #f5d0d0;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-left: 3px solid #FFD700;
+      line-height: 1.5;
+    }
+
+    /* ── Inline photo float (for WWII section) ── */
+    .photo-float-right {
+      float: right;
+      width: 380px;
+      margin: 0 0 24px 36px;
+    }
+    .photo-float-right::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .clearfix::after { content: ''; display: table; clear: both; }
+
+    /* ── YouTube Embed ── */
+    .video-block {
+      margin: 30px 0;
+    }
+    .video-block .video-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #FFD700;
+      background: #8B0000;
+      display: inline-block;
+      padding: 5px 14px;
+      margin-bottom: 0;
+      border-bottom: 2px solid #FFD700;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border: 3px solid #C8A000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-caption {
+      background: #F0E4D0;
+      border-left: 4px solid #8B0000;
+      padding: 10px 16px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: #4a1a1a;
+    }
+
     /* ── Divider ── */
     .gold-divider {
       border: none;
@@ -520,6 +596,10 @@
       <p>He was a member of the Communist Party of the Soviet Union from 1920 to 1961, a little over four decades. He died of natural causes on January 14, 1988, in Moscow, and was then buried at Kuntsevo Cemetery. He is commonly remebered as a simple transitional figure from the dictatorship of Stalin to the much calmer regime of Khrushchev.</p>
     </div>
     <div>
+      <figure class="photo-figure" style="margin-bottom:16px;">
+        <img src="G_M__Malenkov_TASS_Portrait_Trim_Edit.jpg" alt="Official TASS portrait of Georgy Malenkov" />
+        <figcaption>Georgy Malenkov — Official TASS Portrait, c. 1950</figcaption>
+      </figure>
       <div class="quick-facts">
         <h3>Quick Facts</h3>
         <table>
@@ -723,9 +803,14 @@
   <hr class="gold-divider">
 
   <!-- WWII -->
-  <div class="content-section" id="wwii">
+  <div class="content-section clearfix" id="wwii">
     <h2>World War II (1941–1945)</h2>
     <h3>The War Committee</h3>
+
+    <figure class="photo-figure photo-float-right">
+      <img src="georgy_malenkov-stalin-red-suqare-kreml-moscow.webp" alt="Malenkov and Stalin at Red Square, Moscow" />
+      <figcaption>Malenkov (left) alongside Stalin at Red Square, Moscow, Kremlin — c. 1940s</figcaption>
+    </figure>
     <p>On June 22, 1941, Germany invaded the Soviet Union. Malenkov was then appointed to the State Defense Committee. This small group held total control over all political and economic life in the country, Malenkov joining it made him one of the five most powerful men in the Soviet Union during World War II.</p>
     <p>From 1941 to 1943, he supervised military aircraft production and the development of nuclear weapons. He was later appointed Chief of the Soviet Missile Program by Stalin. In 1943, he became chairman of the committee overseeing post-war economic rehabilitation of liberated areas, in which he held authority even over those who would normally outrank him.</p>
 
@@ -792,6 +877,18 @@
 
     <p>His supervision of Soviet aircraft production during World War II helped turn the tide against Germany. His leadership of the V2 missile program laid the technical groundwork for Sputnik and the Space Race, one of the defining competitions of the 20th century. He was also positively viewed by foreign nations at his time.</p>
     <p>His life shows the brutal complex way of Soviet politics, a man capable of both overseeing mass purges and genuinely advocating for a less militaristic, more humane Soviet society. His legacy is neither completely dark or completely good, but it is significant to the shaping of global history in the 20th century and beyond.</p>
+
+    <div class="video-block">
+      <div class="video-label">▶ Documentary</div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/r0V4z-7RNgs"
+          title="Georgy Malenkov — Documentary"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-caption">Watch: A documentary profile of Georgy Malenkov's life, rise, and legacy in Soviet history.</div>
+    </div>
 
     <h3>Final Years</h3>
     <p>He was exiled to Kazakhstan, where he managed a hydroelectric plant. In 1961, he was expelled from the Communist Party entirely. At first he suffered heavy depression after his loss of power, but later claimed felt relieved from the the hard life of being a ruler. He spent his final years at a dacha outside Moscow.</p>
