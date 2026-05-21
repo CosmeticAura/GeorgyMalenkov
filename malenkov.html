@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Georgy Malenkov — "We Didn't Start the Fire" Global History Project</title>
+  <style>
+    /*
+      SOVIET COLOR PALETTE
+      --red-dark:   #8B0000  (deep Soviet red)
+      --red:        #CC0000  (primary red)
+      --red-light:  #e8c8c8  (pale red tint for backgrounds)
+      --gold:       #FFD700  (hammer & sickle gold/yellow)
+      --gold-dark:  #C8A000  (darker gold for borders)
+      --cream:      #FDF6EC  (warm off-white page background)
+      --cream-dark: #F0E4D0  (slightly darker cream for boxes)
+      --text:       #1a0000  (near-black with red undertone)
+      --text-mid:   #4a1a1a  (mid-tone red-brown)
+      --text-light: #8a5a5a  (muted red-brown for labels)
+    */
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #FDF6EC;
+      color: #1a0000;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Top Nav Bar ── */
+    .top-nav {
+      background: #8B0000;
+      color: #f5d0d0;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      text-align: center;
+      padding: 6px 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 2px solid #FFD700;
+    }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: #CC0000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      border-bottom: 3px solid #FFD700;
+    }
+    .site-header .site-title {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFD700;
+    }
+    .site-header nav {
+      display: flex;
+      gap: 22px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffd0d0;
+    }
+    .site-header nav a:hover { color: #FFD700; }
+
+    /* ── Hero Banner ── */
+    .hero {
+      background: #8B0000;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px 50px;
+      border-bottom: 4px solid #FFD700;
+    }
+    .hero .label {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 52px;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .hero .dates {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #f5c0c0;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Stats Row ── */
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      background: #F0E4D0;
+      border-bottom: 2px solid #C8A000;
+    }
+    .stat-block {
+      flex: 1;
+      max-width: 220px;
+      text-align: center;
+      padding: 30px 20px;
+      border-right: 1px solid #C8A000;
+    }
+    .stat-block:last-child { border-right: none; }
+    .stat-block .num {
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 48px;
+      color: #8B0000;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-block .desc {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a5a5a;
+    }
+
+    /* ── Section Header ── */
+    .section-header {
+      background: #8B0000;
+      color: #FFD700;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      padding: 10px 40px;
+      margin-top: 0;
+    }
+
+    /* ── Main Content Layout ── */
+    .main-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 40px;
+    }
+
+    /* ── Intro Section ── */
+    .intro-section {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 50px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+    .intro-section h2 {
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 28px;
+      font-weight: normal;
+      color: #8B0000;
+      border-bottom: 2px solid #CC0000;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+    .intro-section p {
+      font-size: 15px;
+      color: #1a0000;
+      margin-bottom: 14px;
+    }
+
+    /* ── Quick Facts Box ── */
+    .quick-facts {
+      background: #F0E4D0;
+      border: 1px solid #C8A000;
+      border-top: 4px solid #8B0000;
+      padding: 22px 24px;
+    }
+    .quick-facts h3 {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8B0000;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #C8A000;
+      padding-bottom: 8px;
+    }
+    .quick-facts table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .quick-facts td {
+      padding: 5px 0;
+      vertical-align: top;
+    }
+    .quick-facts td:first-child {
+      font-weight: bold;
+      color: #4a1a1a;
+      width: 90px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-right: 10px;
+    }
+
+    /* ── Appearances box ── */
+    .appearances-box {
+      background: #8B0000;
+      color: #f5d0d0;
+      padding: 18px 22px;
+      margin-top: 16px;
+      font-size: 13px;
+      border-left: 4px solid #FFD700;
+    }
+    .appearances-box strong {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin-bottom: 8px;
+    }
+
+    /* ── Section ── */
+    .content-section {
+      margin-bottom: 50px;
+    }
+    .content-section h2 {
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 30px;
+      font-weight: normal;
+      color: #8B0000;
+      border-bottom: 2px solid #CC0000;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .content-section h3 {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #CC0000;
+      margin: 24px 0 10px;
+    }
+    .content-section p {
+      font-size: 15px;
+      color: #1a0000;
+      margin-bottom: 14px;
+    }
+
+    /* ── Pull Quote ── */
+    blockquote {
+      border-left: 5px solid #CC0000;
+      background: #F0E4D0;
+      margin: 24px 0;
+      padding: 18px 24px;
+      font-style: italic;
+      font-size: 16px;
+      color: #4a1a1a;
+    }
+    blockquote cite {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8a5a5a;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      margin: 30px 0;
+      padding-left: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 110px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #CC0000;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      position: relative;
+    }
+    .timeline-year {
+      width: 110px;
+      min-width: 110px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8B0000;
+      padding: 18px 16px 18px 0;
+      text-align: right;
+      line-height: 1.3;
+    }
+    .timeline-dot {
+      position: relative;
+      width: 20px;
+      min-width: 20px;
+      display: flex;
+      align-items: flex-start;
+      padding-top: 22px;
+      justify-content: center;
+    }
+    .timeline-dot::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: #CC0000;
+      border-radius: 50%;
+      border: 2px solid #FDF6EC;
+      outline: 2px solid #CC0000;
+      display: block;
+      flex-shrink: 0;
+    }
+    .timeline-body {
+      padding: 14px 0 14px 20px;
+      flex: 1;
+      border-bottom: 1px solid #e8d0d0;
+    }
+    .timeline-item:last-child .timeline-body { border-bottom: none; }
+    .timeline-title {
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 16px;
+      color: #1a0000;
+      margin-bottom: 4px;
+    }
+    .timeline-desc {
+      font-size: 13px;
+      color: #4a1a1a;
+      line-height: 1.5;
+    }
+
+    /* ── Policy Cards ── */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 20px 0;
+    }
+    .policy-card {
+      background: #F0E4D0;
+      border-top: 4px solid #8B0000;
+      padding: 20px;
+    }
+    .policy-card h4 {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #CC0000;
+      margin-bottom: 8px;
+    }
+    .policy-card p {
+      font-size: 13px;
+      color: #1a0000;
+      margin-bottom: 0;
+    }
+
+    /* ── Sources ── */
+    .sources-section {
+      border-top: 3px solid #8B0000;
+      padding-top: 30px;
+      margin-top: 10px;
+    }
+    .sources-section h2 {
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 28px;
+      font-weight: normal;
+      color: #8B0000;
+      margin-bottom: 20px;
+    }
+    .sources-section h3 {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8a5a5a;
+      margin-bottom: 14px;
+    }
+    .sources-list {
+      list-style: none;
+      padding: 0;
+      counter-reset: source-counter;
+    }
+    .sources-list li {
+      counter-increment: source-counter;
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: 13.5px;
+      color: #1a0000;
+      align-items: flex-start;
+    }
+    .sources-list li::before {
+      content: counter(source-counter);
+      background: #8B0000;
+      color: #FFD700;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      min-width: 22px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .sources-list a { color: #8B0000; text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      background: #8B0000;
+      color: #f5c0c0;
+      text-align: center;
+      padding: 22px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-top: 3px solid #FFD700;
+      margin-top: 60px;
+    }
+    footer span { color: #FFD700; }
+
+    /* ── Divider ── */
+    .gold-divider {
+      border: none;
+      border-top: 2px solid #CC0000;
+      margin: 36px 0;
+    }
+
+    @media (max-width: 700px) {
+      .intro-section { grid-template-columns: 1fr; }
+      .policy-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 32px; }
+      .timeline::before { left: 70px; }
+      .timeline-year { width: 70px; font-size: 10px; }
+      .stats-row { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Nav -->
+<div class="top-nav">
+  "We Didn't Start the Fire" — Global History Project
+</div>
+
+<!-- Site Header -->
+<header class="site-header">
+  <div class="site-title">"We Didn't Start the Fire" Global History Project &nbsp;·&nbsp; Georgy Malenkov &nbsp;·&nbsp; 1902–1988</div>
+  <nav>
+    <a href="#biography">Biography</a>
+    <a href="#early-life">Early Life</a>
+    <a href="#purges">The Purges</a>
+    <a href="#wwii">WWII</a>
+    <a href="#premiership">Premiership</a>
+    <a href="#legacy">Legacy</a>
+    <a href="#sources">Sources</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="label">Global History Project</div>
+  <h1>Georgy Malenkov</h1>
+  <div class="dates">January 8, 1902, Orenburg, Russia &nbsp;—&nbsp; January 14, 1988, Moscow</div>
+</section>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-block">
+    <div class="num" style="font-size:18px; line-height:1.3;">Who Was Georgy Malenkov?</div>
+    <div class="desc">Introduction</div>
+  </div>
+  <div class="stat-block">
+    <div class="num">2</div>
+    <div class="desc">Years as Premier</div>
+  </div>
+  <div class="stat-block">
+    <div class="num">86</div>
+    <div class="desc">Age/Lived</div>
+  </div>
+  <div class="stat-block">
+    <div class="num">41</div>
+    <div class="desc">Years Serving in the Party</div>
+  </div>
+</div>
+
+<!-- Section Header: Introduction -->
+<div class="section-header" id="biography">INTRODUCTION</div>
+
+<div class="main-content">
+
+  <!-- Intro -->
+  <div class="intro-section">
+    <div>
+      <h2>Who Was Georgy Malenkov?</h2>
+      <p>Georgy Maksimilianovich Malenkov was born on January 8, 1902, in Orenburg, in the Russian Empire. He was the son of a wealthy farmer whose ancestors were of Macedonian descent and had served as officers in the Russian Imperial Army. His mother was the daughter of a blacksmith and the granddaughter of an Orthodox priest. He was an engineer and politician, a father of three children, and later on in his life a Russian Orthodox believer.</p>
+      <p>He was a member of the Communist Party of the Soviet Union from 1920 to 1961, a little over four decades. He died of natural causes on January 14, 1988, in Moscow, and was then buried at Kuntsevo Cemetery. He is commonly remebered as a simple transitional figure from the dictatorship of Stalin to the much calmer regime of Khrushchev.</p>
+    </div>
+    <div>
+      <div class="quick-facts">
+        <h3>Quick Facts</h3>
+        <table>
+          <tr><td>Born</td><td>January 8, 1902 in Orenburg, Russian Empire</td></tr>
+          <tr><td>Died</td><td>January 14, 1988 in Moscow at aged 86</td></tr>
+          <tr><td>Party</td><td>Communist Party of the Soviet Union (1920–1961)</td></tr>
+          <tr><td>Office</td><td>Premier of the Soviet Union, March 1953 – February 1955</td></tr>
+          <tr><td>Profession</td><td>Engineer &amp; Politician</td></tr>
+          <tr><td>Partner (Romantic)</td><td>Valeriya Golubtsova</td></tr>
+          <tr><td>Children</td><td>3</td></tr>
+          <tr><td>School</td><td>Moscow Highest Technical School</td></tr>
+          <tr><td>Buried</td><td>Kuntsevo Cemetery, Moscow</td></tr>
+        </table>
+      </div>
+      <div class="appearances-box">
+        <strong>APPREARENCES</strong>
+        Malenkov appeared on the cover of <em>Time</em> magazine twice — once in 1952 and again in 1953, the first time embraced by Stalin and recognized as his heir apparent.
+        <br><br>
+        He was later portrayed by Jeffrey Tambor in the 2017 satirical film <em>The Death of Stalin</em>.
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-divider">
+
+  <!-- Early Life -->
+  <div class="content-section" id="early-life">
+    <h2>Early Life</h2>
+    <p>Malenkov was born into his family's farming household and helped his father with the harvest and farming business. His mother was the daughter of a blacksmith and the granddaughter of an Orthodox priest. He graduated from the Orenburg gymnasium.</p>
+    <p>In 1918, he volunteered for the Red Army and fought against the White Army soldiers in the Russian Civil War. He joined the Communist Party in 1920, serving as a political commissar on a propaganda train in Turkestan. He then became the communist secretary at the Moscow Higher Technical School, where he slowly climbed the communist social ladder.</p>
+    <p>In 1920, he began living with Soviet scientists, who some had connections to Lenin and studied alongside him for years before the Revolution. This connection to Lenin helped Malenkov in their communist career.</p>
+
+    <h3>Stalin Takes Notice — 1924</h3>
+    <p>In 1924, Stalin noticed Malenkov and assigned him to the Orgburo of the Central Committee. In 1925, he began working in the staff of the Organizational Bureau, which put him in charge of maintaining member records, around 200k files a year. Two million files were made under him across 10 years, over which  Malenkov won Stalin's confidence and became one of his personal secretaries.</p>
+  </div>
+
+  <hr class="gold-divider">
+
+  <!-- The Purges -->
+  <div class="content-section" id="purges">
+    <h2>Rise to Power</h2>
+    <h3>Power Through the Purges</h3>
+    <p>From 1930 to 1934, Malenkov was head of personnel in the Moscow party organization, directly under Kaganovich, helping eliminate the enemies of Stalin. In 1934, he returned to the central committee as chief to Nikolai Yezhov, who later became head of the secret police. During the Stalinist purges, Malenkov controlled the folders containing detailed information about all party officials and even recommended who should be purged and who would succeed them.</p>
+    <p>In 1938, he was one of those who brought the downfall of NKVD head Nikolai Yezhov. By 1939, he became head of the Cadres Directorate and a member of the Central Committee Secretariat. As of February 1941, he became a candidate member of the Politburo.</p>
+
+    <blockquote>
+      Party officials reported that Malenkov personally had participated in the interrogation under torture and elimination of as many as 3.5k Armenian communists in 1937.
+      <cite>— Paul D. Steeves, EBSCO Research Starters, 2023</cite>
+    </blockquote>
+
+    <h3>Career Timeline</h3>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">1902</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Born in Orenburg, Russian Empire</div>
+          <div class="timeline-desc">Son of a wealthy farmer; ancestors were Macedonian officers. Mother was granddaughter of an Orthodox priest.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1918</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Joins the Red Army</div>
+          <div class="timeline-desc">Volunteers at age 16 to fight in the Civil War, becoming a political commissar in Turkestan.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1920</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Joins the Communist Party</div>
+          <div class="timeline-desc">Begins formal political career, serves as commissar on a propaganda train.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1924–1925</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Stalin Takes Notice</div>
+          <div class="timeline-desc">Assigned to the Orgburo, begins taking in 200,000 party files per year, 2 million total.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1930S</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">The Great Purge</div>
+          <div class="timeline-desc">Controls all party dossiers, recommends who is purged and who succeeds them. Personally implicated in mass arrests across the USSR.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Feb 1941</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Candidate Member of the Politburo</div>
+          <div class="timeline-desc">Delivers landmark public speech demanding competence in party appointments.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Jun 1941</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">State Defense Committee</div>
+          <div class="timeline-desc">1/5 members governing the entire Soviet war effort, oversees aircraft, nuclear weapons, and the missile program.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1943</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Chief of Soviet Missile Program</div>
+          <div class="timeline-desc">Supervises the takeover of the German missile industry from Peenemünde, laying the groundwork for Vostok rockets and Sputnik.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1946</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Full Politburo Member &amp; Deputy Premier</div>
+          <div class="timeline-desc">First Soviet figure after Stalin to hold posts in both the party Secretariat and Council of Ministers simultaneously.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1952</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Time Magazine Cover</div>
+          <div class="timeline-desc">Featured alongside Stalin on the cover of <em>Time</em>. Delivers the principal speech at the 19th Party Congress.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Mar 5, 1953</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Stalin Dies, and Malenkov Ascends</div>
+          <div class="timeline-desc">Less than 24 hours after Stalin's death, Malenkov holds all the posts Stalin had held. Most government ministries come under his direct oversight.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1953–1955</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Premier of the Soviet Union</div>
+          <div class="timeline-desc">Pursues the "New Course" — consumer goods, agricultural reform, peaceful coexistence with the West, reduced military spending.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Feb 8, 1955</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Forced to Resign</div>
+          <div class="timeline-desc">Accused of abusing his power, later succeeded by Marshal Nikolai Bulganin. His reforms are abandoned and then later adopted by Khrushchev.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1957</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Failed Revolt — Exile to Kazakhstan</div>
+          <div class="timeline-desc">Organizes an attempt to remove Khrushchev. The plot fails, and he is exiled.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1961</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Expelled from the Communist Party</div>
+          <div class="timeline-desc">Punished for his role in the Anti-Party Group.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Jan 14, 1988</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <div class="timeline-title">Death</div>
+          <div class="timeline-desc">Dies of natural causes at age 86. His funeral was private. (Buried at Kuntsevo Cemetery.)</div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </div>
+
+  <hr class="gold-divider">
+
+  <!-- WWII -->
+  <div class="content-section" id="wwii">
+    <h2>World War II (1941–1945)</h2>
+    <h3>The War Committee</h3>
+    <p>On June 22, 1941, Germany invaded the Soviet Union. Malenkov was then appointed to the State Defense Committee. This small group held total control over all political and economic life in the country, Malenkov joining it made him one of the five most powerful men in the Soviet Union during World War II.</p>
+    <p>From 1941 to 1943, he supervised military aircraft production and the development of nuclear weapons. He was later appointed Chief of the Soviet Missile Program by Stalin. In 1943, he became chairman of the committee overseeing post-war economic rehabilitation of liberated areas, in which he held authority even over those who would normally outrank him.</p>
+
+    <h3>The Missile Legacy</h3>
+    <p>Malenkov supervised the Soviet takeover of the German V2 missile industry, moving it from Peenemünde to Moscow for easier development. This work resulted in the Vostok missiles and the orbiting of Sputnik, one of the largest technological achievements of the 20th century, and the launch of the Space Race.</p>
+
+    <h3>His Philosophy of Talent</h3>
+    <p>Instead of testing candidates for ideological loyalty, Malenkov looked for engineers and scientists with technical skills. He understated the role of political commissars who understood not much to do with technology. His focus on hiring technical expertise over ideology proved to be one of the most impactful decisions he ever made.</p>
+
+    <h3>Defeating Zhdanovshchina</h3>
+    <p>A major ideological debate shaped the late war and postwar years. Andrei Zhdanov argued that ideology trumped science and called for prioritizing political education over technical expertise. Malenkov's opposed and pushed the values of science and engineering. They had proven extraordinarily successful during the war, and the united opposition of Malenkov and his allies ultimately defeated Zhdanov's proposals.</p>
+    <p>Zhdanov died in 1948. With support, Malenkov manufactured the "Leningrad affair," which resulted in the arrests of thousands of communists associated with Zhdanov, and the execution of 23 leaders. Over two thousand managers and intellectuals were exiled.</p>
+  </div>
+
+  <hr class="gold-divider">
+
+  <!-- Premiership -->
+  <div class="content-section" id="premiership">
+    <h2>The Premiership (1953–1955)</h2>
+    <h3>The "New Course"</h3>
+    <p>On March 5, 1953, Stalin died. In less than a day, Malenkov became Chairman of the Council of Ministers and First Secretary, all the posts that Stalin had held. Most government ministries were brought under Malenkov's direct oversight.</p>
+
+    <blockquote>
+      A new world war, with modern weapons, means the end of world civilization.
+      <cite>— Georgy Malenkov, March 1954</cite>
+    </blockquote>
+
+    <p>After receiving a report from senior physicists about the dangers of thermonuclear war, Malenkov pursued a policy of peaceful coexistence with the United States, a complete change from Stalinist doctrine. When it came to diplomacy he always took the peaceful line, while still keeping Eastern European countries under Soviet influence.</p>
+
+    <div class="policy-grid">
+      <div class="policy-card">
+        <h4>Consumer Economy</h4>
+        <p>Advocated refocusing the economy on consumer goods through heavy industry, with the goal of raising living standards for citizens.</p>
+      </div>
+      <div class="policy-card">
+        <h4>Agricultural Reform</h4>
+        <p>Pushed for tax cuts for peasants, higher prices paid to collective farms, and incentives for peasants to cultivate their private plots.</p>
+      </div>
+      <div class="policy-card">
+        <h4>Peaceful Coexistence</h4>
+        <p>Claimed that modern nuclear war would end civilization. Bringing about the end of armed conflict in Korea and sought a new relationship with the West.</p>
+      </div>
+      <div class="policy-card">
+        <h4>Military Cuts</h4>
+        <p>Reductions in arms appropriations — policies resisted by military leaders who considered heavy industry vital in any possible conflict with the West.</p>
+      </div>
+    </div>
+
+    <p>Those policies were never fully put in place because of opposition from party members who saw his focus on light industry as a "rightist deviation." On February 8, 1955, he was forced to resign, accused of abuse of power and a lack of ability to direct the government. He was succeeded by Marshal Nikolai Bulganin. His economic program was abandoned and then eventually adopted by Khrushchev.</p>
+  </div>
+
+  <hr class="gold-divider">
+
+  <!-- Legacy -->
+  <div class="content-section" id="legacy">
+    <h2>Historical Significance</h2>
+    <h3>Summary</h3>
+    <p>Malenkov is commonly seen as a transition figure from the dictatorship of Stalin to the much more relaxed Khrushchev. Ironically, Khrushchev eventually supported many of the reforms first placed by Malenkov, including the focus on consumer goods and the doctrine of peaceful coexistence that became the cornerstone of Cold War era Soviet foreign policy.</p>
+
+    <blockquote>
+      Some commentators have credited Malenkov with proposing initiatives that later leaders, including Mikhail S. Gorbachev, claimed as their own. In the nuclear era, Malenkov said Moscow and Washington had to establish a relationship that was not premised on war being inevitable. This became Khrushchev's doctrine of peaceful coexistence.
+      <cite>— The New York Times, February 2, 1988</cite>
+    </blockquote>
+
+    <p>His supervision of Soviet aircraft production during World War II helped turn the tide against Germany. His leadership of the V2 missile program laid the technical groundwork for Sputnik and the Space Race, one of the defining competitions of the 20th century. He was also positively viewed by foreign nations at his time.</p>
+    <p>His life shows the brutal complex way of Soviet politics, a man capable of both overseeing mass purges and genuinely advocating for a less militaristic, more humane Soviet society. His legacy is neither completely dark or completely good, but it is significant to the shaping of global history in the 20th century and beyond.</p>
+
+    <h3>Final Years</h3>
+    <p>He was exiled to Kazakhstan, where he managed a hydroelectric plant. In 1961, he was expelled from the Communist Party entirely. At first he suffered heavy depression after his loss of power, but later claimed felt relieved from the the hard life of being a ruler. He spent his final years at a dacha outside Moscow.</p>
+    <p>He converted to Russian Orthodoxy, as did his daughter, who spent some of her personal wealth building two churches in rural locations. Orthodox Church said he had been a choir singer and reader in his final years. His funeral in January 1988 was a very private.</p>
+
+    <h3>Foreign Assessment — British Ambassador Sir William Hayter, 1954</h3>
+    <p>British Ambassador Sir William Hayter described Malenkov as seeming "easily the most intelligent and quickest to grasp what was being said." He was considered an "extremely agreeable neighbour at the table" who spoke "well-educated Russian" with a "pleasant, musical voice." Hayter sayed that Khrushchev, by contrast, struck him as "alarmingly ignorant of foreign affairs", and even had to have things explained to him by Malenkov in "words of one syllable." Such was the interest aroused that Winston Churchill invited Hayter to Chartwell to give a full account of the meeting.</p>
+  </div>
+
+  <hr class="gold-divider">
+
+  <!-- Sources -->
+  <div class="sources-section" id="sources">
+    <h2>Sources</h2>
+    <h3>Works Cited</h3>
+    <ol class="sources-list">
+      <li>Steeves, Paul D. "Georgi M. Malenkov." <em>Research Starters: History.</em> EBSCO Information Services, 2023. <a href="https://www.ebsco.com/research-starters/history/georgi-m-malenkov" target="_blank">www.ebsco.com/research-starters/history/georgi-m-malenkov</a>.</li>
+      <li>"Georgi Malenkov Dies at 86; Stalin Successor." <em>The New York Times,</em> 2 Feb. 1988, Section A, Page 1. <a href="https://www.nytimes.com/1988/02/02/obituaries/georgi-malenkov-dies-at-86-stalin-successor.html" target="_blank">www.nytimes.com/1988/02/02/obituaries/georgi-malenkov-dies-at-86-stalin-successor.html</a>.</li>
+      <li>"Georgy Malenkov." <em>Wikipedia: The Free Encyclopedia,</em> Wikimedia Foundation. <a href="https://en.wikipedia.org/wiki/Georgy_Malenkov" target="_blank">en.wikipedia.org/wiki/Georgy_Malenkov</a>.</li>
+      <li>HISTORY.com Editors. "Georgy Malenkov Succeeds Stalin." <em>HISTORY,</em> A&amp;E Television Networks, last updated Mar. 2, 2025. <a href="https://www.history.com/this-day-in-history/march-6/georgi-malenkov-succeeds-stalin" target="_blank">www.history.com/this-day-in-history/march-6/georgi-malenkov-succeeds-stalin</a>.</li>
+      <li>Britannica Editors. "Georgy Maksimilianovich Malenkov." <em>Encyclopædia Britannica.</em> <a href="https://www.britannica.com/biography/Georgy-Maksimilianovich-Malenkov" target="_blank">www.britannica.com/biography/Georgy-Maksimilianovich-Malenkov</a>.</li>
+    </ol>
+  </div>
+
+</div><!-- /main-content -->
+
+<footer>
+  <span>"We Didn't Start the Fire"</span> — Global History Project &nbsp;·&nbsp; Georgy Malenkov &nbsp;·&nbsp; 1902–1988
+</footer>
+
+</body>
+</html>
